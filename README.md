@@ -11,7 +11,7 @@ This project is probably the dumbest but i needed something easier to manage my 
 5. [rename](#rename)
 6. [remove](#remove)
 
-> **NOTE:** Every command accepts -n and -s flag for project's name and scope. They are used to perform the actions on that particular project and scope. The default project the name of the current directory and the default scope is 'dev'.
+> **NOTE:** Every command accepts -n and -s flag for project's name and scope. They are used to perform the actions on that particular project and scope. The default project is the name of the current directory and the default scope is 'dev'. The db will be stored at `${XDG_CONFIG_HOME}/envNinja/envNinja.db` or `~/.config/envNinja/envNinja.db`
 
 ### push
 
@@ -92,6 +92,14 @@ envNinja remove -s prod
 
 # Remove project
 envNinja remove -n project
+```
+
+## Installation
+```
+git clone --depth 1 https://github.com/BijanRegmi/envNinja.git
+cd envNinja
+go generate ./ent
+go install ./...
 ```
 
 TODO:
