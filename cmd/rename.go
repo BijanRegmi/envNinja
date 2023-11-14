@@ -11,7 +11,7 @@ var (
 	renameKey string
 
 	renameCmd = &cobra.Command{
-		Use:   "rename",
+		Use:   "rename NEW_NAME",
 		Short: "Rename secret's key or scope or project",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -24,7 +24,7 @@ var (
 			} else if cmd.Flags().Changed("name") {
 				return envninja.RenameProjectName(projectName, newName)
 			} else {
-				return fmt.Errorf("Provide either key to remove or scope or project.")
+				return fmt.Errorf("Provide either key or scope or project to remove.")
 			}
 		},
 	}
@@ -33,5 +33,5 @@ var (
 func init() {
 	rootCmd.AddCommand(renameCmd)
 
-	renameCmd.Flags().StringVarP(&renameKey, "key", "k", "", "KEY")
+	renameCmd.Flags().StringVarP(&renameKey, "key", "k", "", "secret's key")
 }

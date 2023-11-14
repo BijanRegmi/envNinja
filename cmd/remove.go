@@ -9,7 +9,7 @@ import (
 
 var (
 	removeCmd = &cobra.Command{
-		Use:   "remove [KEYS]",
+		Use:   "remove [KEY1 KEY2 .. KEYN]",
 		Short: "Remove secrets or scope or project",
 		Args:  cobra.MaximumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {

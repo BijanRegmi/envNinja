@@ -28,11 +28,11 @@ var (
 func init() {
 	rootCmd.AddCommand(pushCmd)
 
-	pushCmd.Flags().StringVarP(&pushKey, "key", "k", "", "KEY")
-	pushCmd.Flags().StringVarP(&pushValue, "value", "v", "", "VALUE")
+	pushCmd.Flags().StringVarP(&pushKey, "key", "k", "", "secret key")
+	pushCmd.Flags().StringVarP(&pushValue, "value", "v", "", "secret value")
 	pushCmd.MarkFlagsRequiredTogether("key", "value")
 
-	pushCmd.Flags().StringVarP(&pushEnvPath, "path", "p", ".env", "Env path")
+	pushCmd.Flags().StringVarP(&pushEnvPath, "path", "p", ".env", "env path")
 
 	pushCmd.MarkFlagsMutuallyExclusive("path", "key")
 	pushCmd.MarkFlagsMutuallyExclusive("path", "value")
